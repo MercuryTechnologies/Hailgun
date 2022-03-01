@@ -1,12 +1,16 @@
+{-# LANGUAGE CPP #-}
 module Mail.Hailgun.SendEmail
     ( sendEmail
     , HailgunSendResponse(..)
     ) where
 
+#if __GLASGOW_HASKELL__ < 800
 import           Control.Applicative
+#endif
 import           Control.Monad                         (mzero)
 import           Data.Aeson
 import qualified Data.ByteString.Char8                 as BC
+import           Data.String                           (fromString)
 import qualified Data.Text                             as T
 import qualified Data.Text.Encoding                    as T
 import           Mail.Hailgun.Communication
@@ -17,8 +21,6 @@ import           Mail.Hailgun.PartUtil
 import           Network.HTTP.Client                   (httpLbs, newManager)
 import qualified Network.HTTP.Client.MultipartFormData as NCM
 import           Network.HTTP.Client.TLS               (tlsManagerSettings)
-import           Text.Email.Validate                   (EmailAddress,
-                                                        toByteString)
 
 -- | Send an email using the Mailgun API's. This method is capable of sending a message over the
 -- Mailgun service. All it needs is the appropriate context.
@@ -80,7 +82,7 @@ data HailgunSendResponse = HailgunSendResponse
 
 instance FromJSON HailgunSendResponse where
    parseJSON (Object v) = HailgunSendResponse
-      <$> v .: T.pack "message"
-      <*> v .: T.pack "id"
+      <$> v .: fromString "message"
+      <*> v .: fromString "id"
    parseJSON _ = mzero
 

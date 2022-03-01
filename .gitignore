@@ -10,6 +10,7 @@ tags
 /dist
 /dist-newstyle
 /.stack-work
+stack*.yaml.lock
 
 # Config File
 /hailgun.send.conf

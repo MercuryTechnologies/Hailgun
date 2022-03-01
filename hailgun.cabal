@@ -10,7 +10,7 @@ name:                hailgun
 -- PVP summary:      +-+------- breaking API changes
 --                   | | +----- non-breaking API additions
 --                   | | | +--- code changes with no API change
-version:             0.4.5
+version:             0.5.1
 
 -- A short (one-line) description of the package.
 synopsis:            Mailgun REST api interface for Haskell.
@@ -27,16 +27,16 @@ license:             MIT
 license-file:        LICENSE
 
 -- The package author(s).
-author:              Robert Massaioli
+author:              Robert Massaioli <robertmassaioli@gmail.com>
 
 -- An email address to which users can send suggestions, bug reports, and
 -- patches.
-maintainer:          robertmassaioli@gmail.com
+maintainer:          Konstantine Rybnikov <k-bx@k-bx.com>
 
 -- A copyright notice.
 copyright:           (c) 2014-2018 Robert Massaioli
 
-homepage:            https://bitbucket.org/robertmassaioli/hailgun
+homepage:            https://bitbucket.org/echo_rm/hailgun
 
 category:            Network
 
@@ -74,7 +74,7 @@ library
 
    build-depends:         base               >= 4.6 && < 5
                         , aeson              >= 0.8
-                        , bytestring         >= 0.10.4 && <= 0.11
+                        , bytestring         >= 0.10.4 && <= 0.12
                         , email-validate     >= 2.0 && < 2.4
                         , exceptions         >= 0.8
                         , filepath           >= 1 && < 2
@@ -85,7 +85,7 @@ library
                         , text               == 1.2.*
                         , transformers       >= 0.3 && < 0.6
                         , filepath           >= 1 && < 2
-                        , attoparsec         >= 0.13 && < 0.14
+                        , attoparsec         >= 0.13 && < 0.15
 
    if flag(newtime)
       Build-Depends:    time >= 1.5

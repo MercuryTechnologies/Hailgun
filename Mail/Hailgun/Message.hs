@@ -4,7 +4,6 @@ module Mail.Hailgun.Message
     ) where
 
 import           Control.Applicative
-import           Data.Either                        (either)
 import qualified Data.ByteString.Char8              as BC
 import qualified Data.Text                          as T
 import           Data.Text.Encoding                 (encodeUtf8, decodeUtf8)
