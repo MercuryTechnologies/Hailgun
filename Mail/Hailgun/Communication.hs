@@ -13,7 +13,9 @@ import           Control.Monad.IO.Class                (MonadIO (..))
 import           Data.Aeson
 import qualified Data.ByteString.Char8                 as BC
 import qualified Data.ByteString.Lazy.Char8            as BLC
+#if __GLASGOW_HASKELL__ < 806
 import           Data.Foldable                         (foldMap)
+#endif
 import           Data.Monoid
 import           Mail.Hailgun.Errors
 import           Mail.Hailgun.Internal.Data
@@ -77,5 +79,8 @@ parseResponse response = statusToResponse . NT.statusCode . NC.responseStatus $ 
 responseDecode :: (FromJSON a) => NC.Response BLC.ByteString -> Either HailgunErrorResponse a
 responseDecode = mapError . eitherDecode . NC.responseBody
 
+#if MIN_VERSION_http_client(0,5,0)
+#else
 ignoreStatus :: a -> b -> c -> Maybe d
 ignoreStatus _ _ _ = Nothing
+#endif

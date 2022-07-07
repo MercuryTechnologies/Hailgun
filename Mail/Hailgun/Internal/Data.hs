@@ -16,7 +16,9 @@ module Mail.Hailgun.Internal.Data
     , AttachmentType(..)
     ) where
 
+#if __GLASGOW_HASKELL__ < 800
 import           Control.Applicative
+#endif
 import           Data.Aeson
 import qualified Data.ByteString      as B
 import qualified Data.ByteString.Lazy as BL
@@ -30,7 +32,6 @@ import           Data.Time.Format     (ParseTime (..), parseTimeM)
 #endif
 import           Data.Time.LocalTime  (zonedTimeToUTC)
 import qualified Network.HTTP.Client  as NHC
-import qualified Text.Email.Validate  as TEV
 
 #if MIN_VERSION_time(1,5,0)
 import           Data.Time.Format     (defaultTimeLocale)
