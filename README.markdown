@@ -19,6 +19,6 @@ steps:
 At that point in time you should have a working version of the library. If you wish to see the
 library in action then you could look at the [hailgun-send library][3].
 
- [1]: http://documentation.mailgun.com/api_reference.html
+ [1]: https://documentation.mailgun.com/en/latest/api_reference.html
  [2]: http://www.haskell.org/cabal/
  [3]: https://hackage.haskell.org/package/hailgun-send
