@@ -15,6 +15,9 @@ steps:
     cabal install --only-dependencies --lib
     cabal build
 
+To test it in a REPL environment:
+    cabal repl
+
 At that point in time you should have a working version of the library. If you wish to see the
 library in action then you could look at the [hailgun-send library][3].
 
