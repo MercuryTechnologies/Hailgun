@@ -12,7 +12,8 @@ The goal of this library is match this API 1-1.
 This library just uses [cabal][2] to build itself. To do so for development then follow the following
 steps:
 
-    cabal install --only-dependencies --lib
+    cabal install --only-dependencies --lib (This works with the cabal file as is)
+    cabal install --only-dependencies (This only works if you configured an executable in the cabal file)
     cabal build
 
 To test it in a REPL environment:
