@@ -12,8 +12,7 @@ The goal of this library is match this API 1-1.
 This library just uses [cabal][2] to build itself. To do so for development then follow the following
 steps:
 
-    cabal sandbox init
-    cabal install --only-dependencies
+    cabal install --only-dependencies --lib
     cabal build
 
 At that point in time you should have a working version of the library. If you wish to see the
